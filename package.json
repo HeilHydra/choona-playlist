@@ -1,0 +1,25 @@
+{
+  "name": "choona-playlist",
+  "version": "0.1.0",
+  "description": "Playlist manager for Choona",
+  "main": "service.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HeilHydra/choona-playlist.git"
+  },
+  "author": "Oliver Woodings",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HeilHydra/choona-playlist/issues"
+  },
+  "homepage": "https://github.com/HeilHydra/choona-playlist",
+  "dependencies": {
+    "config": "^1.12.0",
+    "js-yaml": "^3.2.7",
+    "waterway": "git://github.com/HeilHydra/waterway#refactor-streams",
+    "when": "^3.7.2"
+  }
+}
