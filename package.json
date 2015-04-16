@@ -19,6 +19,7 @@
   "dependencies": {
     "config": "^1.12.0",
     "js-yaml": "^3.2.7",
+    "lodash": "^3.6.0",
     "waterway": "git://github.com/HeilHydra/waterway#refactor-streams",
     "when": "^3.7.2"
   }
