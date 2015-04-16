@@ -6,35 +6,35 @@ var NRP = require("node-redis-pubsub");
 var lame = require("lame");
 var Speaker = require("speaker");
 
-var app = new Waterway(config.waterway);
-var playlistManager = new PlaylistManager(app);
+var service = new Waterway(config.waterway);
+var playlistManager = new PlaylistManager(service);
 
-app.request("playlist", ":playlistId", "add", ":trackId")
+service.request("playlist", ":playlistId", "add", ":trackId")
   .respond(function (req) {
     return playlistManager.get(req.params.playlistId).add(req.params.trackId);
   });
 
-app.request("playlist", ":playlistId", "upvote", ":trackId")
+service.request("playlist", ":playlistId", "upvote", ":trackId")
   .respond(function (req) {
     return playlistManager.get(req.params.playlistId).upvote(req.params.trackId);
   });
 
-app.request("playlist", ":playlistId", "downvote", ":trackId")
+service.request("playlist", ":playlistId", "downvote", ":trackId")
   .respond(function (req) {
     return playlistManager.get(req.params.playlistId).downvote(req.params.trackId);
   });
 
-app.request("playlist", ":playlistId", "getQueue")
+service.request("playlist", ":playlistId", "getQueue")
   .respond(function (req) {
     return playlistManager.get(req.params.playlistId).getQueue();
   });
 
-app.request("playlist", ":playlistId", "getStatus")
+service.request("playlist", ":playlistId", "getStatus")
   .respond(function (req) {
     return playlistManager.get(req.params.playlistId).getStatus();
   });
 
-app.stream("playlist", ":playlistId", "stream")
+service.stream("playlist", ":playlistId", "stream")
   .writable(function (stream, req) {
     playlistManager.get(req.params.playlistId).streamTo(stream);
   });
