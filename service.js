@@ -34,3 +34,8 @@ service.stream("playlist", ":playlistId", "stream")
   .writable(function (stream, req) {
     playlistManager.get(req.params.playlistId).streamTo(stream);
   });
+
+service.request("playlist", ":playlistId", "search", ":searchString")
+  .respond(function (req) {
+    return playlistManager.get(req.params.playlistId).search(req.params.searchString);
+  });
