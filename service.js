@@ -10,14 +10,14 @@ service.request("playlist", ":playlistId", "add", ":trackId")
     return playlistManager.get(req.params.playlistId).add(req.params.trackId);
   });
 
-service.request("playlist", ":playlistId", "upvote", ":trackId")
+service.request("playlist", ":playlistId", "user", ":userId", "upvote", ":trackId")
   .respond(function (req) {
-    return playlistManager.get(req.params.playlistId).upvote(req.params.trackId);
+    return playlistManager.get(req.params.playlistId).upvote(req.params.trackId, req.params.userId);
   });
 
-service.request("playlist", ":playlistId", "downvote", ":trackId")
+service.request("playlist", ":playlistId", "user", ":userId", "downvote", ":trackId")
   .respond(function (req) {
-    return playlistManager.get(req.params.playlistId).downvote(req.params.trackId);
+    return playlistManager.get(req.params.playlistId).downvote(req.params.trackId, req.params.userId);
   });
 
 service.request("playlist", ":playlistId", "getQueue")
